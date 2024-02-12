@@ -1,103 +1,21 @@
 name: Integration continue
 
 on:
-    # push:
-    #     branches: ["main"]
+    push:
+        branches: ["main"]
     pull_request:
-        branches: ["cicd"]
+        branches: ["main"]
 
 jobs:
-  frontend-test:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: frontend
-  
-    steps:
-    -  uses: actions/checkout@v3
+    routage:
+        runs-on: ubuntu-latest
 
-    - name: Use Node.js 18
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18.x
-    
-    - name: Install dependencies
-      run: npm install
-    
-    - name: Lunch test
-      run: npm test
-    
-  Backend-auth-test:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: backend/srv_auth
-  
-    steps:
-    -  uses: actions/checkout@v3
-
-    - name: Use Node.js 18
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18.x
-    
-    - name: Install dependencies
-      run: npm install
-    
-    - name: Lunch test
-      run: npm test
-  
-  Backend-data-test:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: backend/srv_data
-  
-    steps:
-    -  uses: actions/checkout@v3
-
-    - name: Use Node.js 18
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18.x
-    
-    - name: Install dependencies
-      run: npm install
-    
-    - name: Lunch test
-      run: npm test
-
-  Backend-mail-test:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: backend/srv_mail
-  
-    steps:
-    -  uses: actions/checkout@v3
-
-    - name: Use Node.js 18
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18.x
-    
-    - name: Install dependencies
-      run: npm install
-    
-    - name: Lunch test
-      run: npm test
-  
-
-
-    # routage:
-    #     runs-on: ubuntu-latest
-
-    #     steps:
-    #         - name: Checkout
-    #           uses: actions/checkout@v3
-    #         - name: Setup node
-    #           uses: actions/setup-node@v3
-    #           with:
-    #             node-version: 18.x
-    #         - name: Run blague
-    #           run: echo blague
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: Setup node
+              uses: actions/setup-node@v3
+              with:
+                node-version: 18.x
+            - name: Run blague
+              run: echo blague
